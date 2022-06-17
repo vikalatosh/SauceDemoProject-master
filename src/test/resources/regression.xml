@@ -11,11 +11,11 @@
             <class name="tests.ProductsTest"/>
         </classes>
     </test> <!-- Test -->
-    <test name="Thread 2">
-        <parameter name="browser" value="chrome"></parameter>
-        <classes>
-            <class name="tests.BurgerMenuTest"/>
-            <class name="tests.CheckoutTest"/>
-        </classes>
-    </test> <!-- Test -->
+<!--    <test name="Thread 2">-->
+<!--        <parameter name="browser" value="chrome"></parameter>-->
+<!--        <classes>-->
+<!--            <class name="tests.BurgerMenuTest"/>-->
+<!--            <class name="tests.CheckoutTest"/>-->
+<!--        </classes>-->
+<!--    </test> &lt;!&ndash; Test &ndash;&gt;-->
 </suite>
