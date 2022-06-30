@@ -17,4 +17,5 @@
     <!--            <class name="tests.BurgerMenuTest"/>-->
     <!--            <class name="tests.CheckoutTest"/>-->
     <!--        </classes>-->
+<!--</test> &lt;!&ndash; Test &ndash;&gt;-->
 </suite>
