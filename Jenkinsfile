@@ -6,7 +6,7 @@ pipeline {
         maven "M3"
     }
 
-    properties([
+    options([
         parameters([
             choice(
                 choices: ['master', 'feature/SD-1-test'],
