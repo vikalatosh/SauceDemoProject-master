@@ -9,8 +9,7 @@ pipeline {
     options {
         parameters {
             choice {
-                choices: ['master', 'feature/SD-1-test'],
-                name: 'BRANCH'
+                choices: ['master', 'feature/SD-1-test'], name: 'BRANCH'
             }
         }
     }
