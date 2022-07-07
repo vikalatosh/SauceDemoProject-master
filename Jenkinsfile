@@ -7,12 +7,12 @@ pipeline {
     }
 
     options {
-        parameters([
-            choice(
+        parameters {
+            choice {
                 choices: ['master', 'feature/SD-1-test'],
                 name: 'BRANCH'
-            )
-        ])
+            }
+        }
     }
 
     stages {
