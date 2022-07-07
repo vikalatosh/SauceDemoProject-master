@@ -6,6 +6,15 @@ pipeline {
         maven "M3"
     }
 
+    properties([
+        parameters([
+            choice(
+                choices: ['master', 'feature/SD-1-test'],
+                name: 'BRANCH'
+            )
+        ])
+    ])
+
     stages {
         stage('Build') {
             steps {
