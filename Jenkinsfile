@@ -7,7 +7,9 @@ pipeline {
     }
 
     parameters {
+      booleanParam 'HEADLESS'
       choice choices: ['Chrome', 'Edge', 'Firefox'], name: 'BROWSER'
+      gitParameter branch: '', branchFilter: '.*', defaultValue: 'master', name: 'BRANCH', quickFilterEnabled: false, selectedValue: 'NONE', sortMode: 'NONE', tagFilter: '*', type: 'GitParameterDefinition'
     }
 
     stages {
