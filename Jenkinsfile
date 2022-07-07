@@ -7,7 +7,7 @@ pipeline {
     }
 
     parameters {
-      choice choices: ['master', 'feature/SD-1-test'], name: 'BRANCH'
+      choice choices: ['Chrome', 'Edge', 'Firefox'], name: 'BROWSER'
     }
 
     stages {
