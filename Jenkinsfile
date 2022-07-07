@@ -9,7 +9,7 @@ pipeline {
     options {
         parameters {
             choice {
-                choices: {'master', 'feature/SD-1-test'},
+                choices: ['master', 'feature/SD-1-test'],
                 name: 'BRANCH'
             }
         }
