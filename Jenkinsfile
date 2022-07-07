@@ -6,12 +6,8 @@ pipeline {
         maven "M3"
     }
 
-    options {
-        parameters {
-            choice {
-                choices: ['master', 'feature/SD-1-test'], name: 'BRANCH'
-            }
-        }
+    parameters {
+      choice choices: ['master', 'feature/SD-1-test'], name: 'BRANCH'
     }
 
     stages {
