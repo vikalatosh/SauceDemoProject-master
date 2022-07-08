@@ -20,6 +20,7 @@ public class BaseTest {
     public static final String URL = utils.PropertyReader.getProperty("SAUCEDEMO_URL", "saucedemo.url");
     protected static final String USER = utils.PropertyReader.getProperty("SAUCEDEMO_USER", "saucedemo.user");
     protected static final String PASSWORD = utils.PropertyReader.getProperty("SAUCEDEMO_PASSWORD", "saucedemo.password");
+    protected static final boolean IS_HEADLESS = Boolean.parseBoolean(utils.PropertyReader.getProperty("HEADLESS", "saucesemo.headless"));
     protected LoginPage loginPage;
     protected ProductsPage productsPage;
     protected CheckoutPage checkoutPage;
@@ -39,7 +40,9 @@ public class BaseTest {
             WebDriverManager.chromedriver().setup();
             ChromeOptions options = new ChromeOptions();
             options.addArguments("--start-maximized");
-            options.addArguments("--headless");
+            if (IS_HEADLESS == true) {
+                options.addArguments("--headless");
+            }
             options.addArguments("--disable-notifications");
             driver = new ChromeDriver(options);
         } else if (browser.equals("edge")) {
