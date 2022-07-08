@@ -9,14 +9,14 @@ pipeline {
     parameters {
       booleanParam 'HEADLESS'
       choice choices: ['Chrome', 'Edge', 'Firefox'], name: 'BROWSER'
-      gitParameter branch: '', branchFilter: '.*', defaultValue: 'master', name: 'BRANCH', quickFilterEnabled: false, selectedValue: 'NONE', sortMode: 'NONE', tagFilter: '*', type: 'GitParameterDefinition'
+      gitParameter branch: '', branchFilter: 'origin/(.*)', defaultValue: 'master', name: 'BRANCH', quickFilterEnabled: false, selectedValue: 'NONE', sortMode: 'NONE', tagFilter: '*', type: 'GitParameterDefinition'
     }
 
     stages {
         stage('Build') {
             steps {
                 // Get some code from a GitHub repository
-                git branch: '${params.BRANCH}', url: 'https://github.com/vikalatosh/SauceDemoProject-master.git'
+                git checkout: '${params.BRANCH}', url: 'https://github.com/vikalatosh/SauceDemoProject-master.git'
 
                 // Run Maven on a Unix agent.
                 // sh "mvn -Dmaven.test.failure.ignore=true clean package"
