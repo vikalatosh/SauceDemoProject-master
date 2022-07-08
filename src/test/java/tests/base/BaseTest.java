@@ -42,6 +42,7 @@ public class BaseTest {
             options.addArguments("--start-maximized");
             if (IS_HEADLESS == true) {
                 options.addArguments("--headless");
+                log.info("IS_HEADLESS is true");
             }
             options.addArguments("--disable-notifications");
             driver = new ChromeDriver(options);
