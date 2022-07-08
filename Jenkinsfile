@@ -12,6 +12,7 @@ pipeline {
       gitParameter branch: '', branchFilter: 'origin/(.*)', defaultValue: 'master', name: 'BRANCH', quickFilterEnabled: false, selectedValue: 'NONE', sortMode: 'NONE', tagFilter: '*', type: 'GitParameterDefinition'
     }
 
+
     stages {
         stage('Build') {
             steps {
