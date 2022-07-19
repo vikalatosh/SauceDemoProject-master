@@ -44,15 +44,18 @@ public class BaseTest {
             options.addArguments("--start-maximized");
             options.addArguments("--headless");
             options.addArguments("--disable-notifications");
+            log.info("Chrome");
             driver = new ChromeDriver(options);
         } else if (BROWSER.equals("edge")) {
             WebDriverManager.edgedriver().setup();
             EdgeOptions options = new EdgeOptions();
             driver = new EdgeDriver(options);
+            log.info("edge");
         } else if (BROWSER.equals("firefox")) {
             WebDriverManager.firefoxdriver().setup();
             FirefoxOptions options = new FirefoxOptions();
             driver = new FirefoxDriver(options);
+            log.info("firefox");
         }
         testContext.setAttribute("driver", driver);
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
