@@ -22,7 +22,7 @@ pipeline {
                 // sh "mvn -Dmaven.test.failure.ignore=true -Dbrowser=%BROWSER% -Dheadless=%HEADLESS% clean test"
 
                 // To run Maven on a Windows agent, use
-                bat "mvn -Dmaven.test.failure.ignore=true -Dbrowser=%BROWSER% -Dheadless=%HEADLESS% clean test" //
+                bat "mvn -Dmaven.test.failure.ignore=true clean package" //
             }
 
             post {
