@@ -8,21 +8,21 @@ pipeline {
 
     parameters {
       booleanParam 'HEADLESS'
-      choice choices: ['Chrome', 'Edge', 'Firefox'], name: 'BROWSER'
-      gitParameter branch: '', branchFilter: 'origin/(.*)', defaultValue: 'master', name: 'BRANCH', quickFilterEnabled: false, selectedValue: 'NONE', sortMode: 'NONE', tagFilter: '*', type: 'GitParameterDefinition'
+      choice choices: ['chrome', 'edge', 'firefox'], name: 'BROWSER'
+      gitParameter branchFilter: 'origin/(.*)', defaultValue: 'master', name: 'BRANCH', type: 'PT_BRANCH'
     }
 
     stages {
         stage('Build') {
             steps {
                 // Get some code from a GitHub repository
-                git branch: "${params.BRANCH}", url: 'https://github.com/vikalatosh/SauceDemoProject-master.git'
+                git branch: "${params.BRANCH}", url: 'https://github.com/jenkinsci/git-parameter-plugin.git'
 
                 // Run Maven on a Unix agent.
                 // sh "mvn -Dmaven.test.failure.ignore=true clean package"
 
                 // To run Maven on a Windows agent, use
-                bat "mvn -Dmaven.test.failure.ignore=true -Dbrowser=%BROWSER% -Dheadless=%HEADLESS% clean package"
+                bat "mvn -Dmaven.test.failure.ignore=true clean package" // -Dbrowser=%BROWSER% -Dheadless=%HEADLESS%
             }
 
             post {
