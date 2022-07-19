@@ -34,11 +34,11 @@ public class BaseTest {
 //    public static final String URL = "https://www.saucedemo.com/";
 
     @Step("Open browser")
-//    @Parameters({"browser"})
+    @Parameters({"browser"})
     @BeforeMethod(description = "Open browser")
-    public void setUp(ITestContext testContext) {
+    public void setUp(@Optional("chrome") String browser, ITestContext testContext) {
         log.info("Open browser");
-        if (BROWSER_ENV == null || BROWSER_ENV.equals("chrome")) {
+        if (browser == null || browser.equals("chrome")) {
             WebDriverManager.chromedriver().setup();
             ChromeOptions options = new ChromeOptions();
             options.addArguments("--start-maximized");
@@ -46,12 +46,12 @@ public class BaseTest {
             options.addArguments("--disable-notifications");
             log.info("Chrome");
             driver = new ChromeDriver(options);
-        } else if (BROWSER_ENV.equals("edge")) {
+        } else if (browser.equals("edge")) {
             WebDriverManager.edgedriver().setup();
             EdgeOptions options = new EdgeOptions();
             driver = new EdgeDriver(options);
             log.info("edge");
-        } else if (BROWSER_ENV.equals("firefox")) {
+        } else if (browser.equals("firefox")) {
             WebDriverManager.firefoxdriver().setup();
             FirefoxOptions options = new FirefoxOptions();
             driver = new FirefoxDriver(options);
