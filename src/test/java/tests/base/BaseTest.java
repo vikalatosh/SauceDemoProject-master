@@ -29,6 +29,7 @@ public class BaseTest {
     protected BurgerMenuPage burgerMenuPage;
     WebDriver driver;
     protected static final String browser = System.getenv("BROWSER");
+    protected static final String headless = System.getenv("HEADLESS");
 //    public static final String USER = "standard_user";
 //    public static final String PASSWORD = "secret_sauce";
 //    public static final String URL = "https://www.saucedemo.com/";
@@ -42,7 +43,10 @@ public class BaseTest {
             WebDriverManager.chromedriver().setup();
             ChromeOptions options = new ChromeOptions();
             options.addArguments("--start-maximized");
-            options.addArguments("--headless");
+            if (headless.equals("true")) {
+                log.info("headless");
+                options.addArguments("--headless");
+            }
             options.addArguments("--disable-notifications");
             log.info("Chrome");
             driver = new ChromeDriver(options);
