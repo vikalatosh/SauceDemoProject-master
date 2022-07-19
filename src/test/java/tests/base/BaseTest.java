@@ -28,7 +28,7 @@ public class BaseTest {
     protected CartPage cartPage;
     protected BurgerMenuPage burgerMenuPage;
     WebDriver driver;
-    protected static final String BROWSER = System.getProperty("BROWSER");
+    protected static final String BROWSER_ENV = System.getProperty("BROWSER");
 //    public static final String USER = "standard_user";
 //    public static final String PASSWORD = "secret_sauce";
 //    public static final String URL = "https://www.saucedemo.com/";
@@ -38,7 +38,7 @@ public class BaseTest {
     @BeforeMethod(description = "Open browser")
     public void setUp(ITestContext testContext) {
         log.info("Open browser");
-        if (BROWSER == null || BROWSER.equals("chrome")) {
+        if (BROWSER_ENV == null || BROWSER_ENV.equals("chrome")) {
             WebDriverManager.chromedriver().setup();
             ChromeOptions options = new ChromeOptions();
             options.addArguments("--start-maximized");
@@ -46,12 +46,12 @@ public class BaseTest {
             options.addArguments("--disable-notifications");
             log.info("Chrome");
             driver = new ChromeDriver(options);
-        } else if (BROWSER.equals("edge")) {
+        } else if (BROWSER_ENV.equals("edge")) {
             WebDriverManager.edgedriver().setup();
             EdgeOptions options = new EdgeOptions();
             driver = new EdgeDriver(options);
             log.info("edge");
-        } else if (BROWSER.equals("firefox")) {
+        } else if (BROWSER_ENV.equals("firefox")) {
             WebDriverManager.firefoxdriver().setup();
             FirefoxOptions options = new FirefoxOptions();
             driver = new FirefoxDriver(options);
