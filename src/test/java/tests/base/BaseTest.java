@@ -8,6 +8,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.edge.EdgeOptions;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
 import org.testng.ITestContext;
 import org.testng.annotations.*;
 import pages.*;
@@ -26,26 +28,31 @@ public class BaseTest {
     protected CartPage cartPage;
     protected BurgerMenuPage burgerMenuPage;
     WebDriver driver;
+    protected static final String BROWSER = System.getProperty("BROWSER");
 //    public static final String USER = "standard_user";
 //    public static final String PASSWORD = "secret_sauce";
 //    public static final String URL = "https://www.saucedemo.com/";
 
     @Step("Open browser")
-    @Parameters({"browser"})
+//    @Parameters({"browser"})
     @BeforeMethod(description = "Open browser")
-    public void setUp(@Optional("chrome") String browser, ITestContext testContext) {
+    public void setUp(ITestContext testContext) {
         log.info("Open browser");
-        if (browser.equals("chrome")) {
+        if (BROWSER == null || BROWSER.equals("chrome")) {
             WebDriverManager.chromedriver().setup();
             ChromeOptions options = new ChromeOptions();
             options.addArguments("--start-maximized");
             options.addArguments("--headless");
             options.addArguments("--disable-notifications");
             driver = new ChromeDriver(options);
-        } else if (browser.equals("edge")) {
+        } else if (BROWSER.equals("edge")) {
             WebDriverManager.edgedriver().setup();
             EdgeOptions options = new EdgeOptions();
             driver = new EdgeDriver(options);
+        } else if (BROWSER.equals("firefox")) {
+            WebDriverManager.firefoxdriver().setup();
+            FirefoxOptions options = new FirefoxOptions();
+            driver = new FirefoxDriver(options);
         }
         testContext.setAttribute("driver", driver);
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
