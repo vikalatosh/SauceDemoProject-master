@@ -28,7 +28,7 @@ public class BaseTest {
     protected CartPage cartPage;
     protected BurgerMenuPage burgerMenuPage;
     WebDriver driver;
-    protected static final String browser = System.getProperty("BROWSER");
+    protected static final String browser = System.getenv("BROWSER");
 //    public static final String USER = "standard_user";
 //    public static final String PASSWORD = "secret_sauce";
 //    public static final String URL = "https://www.saucedemo.com/";
@@ -38,7 +38,7 @@ public class BaseTest {
     @BeforeMethod(description = "Open browser")
     public void setUp(ITestContext testContext) {
         log.info("Open browser " + browser.toString());
-        if (browser == "" || browser.equals("chrome")) {
+        if (browser == "" || browser == null || browser.equals("chrome")) {
             WebDriverManager.chromedriver().setup();
             ChromeOptions options = new ChromeOptions();
             options.addArguments("--start-maximized");
