@@ -8,7 +8,7 @@ pipeline {
 
     parameters {
       booleanParam 'HEADLESS'
-      choice choices: ['Chrome', 'Edge', 'Firefox'], name: 'BROWSER'
+      choice choices: ['chrome', 'edge', 'firefox'], name: 'BROWSER'
       gitParameter branchFilter: 'origin/(.*)', defaultValue: 'master', name: 'BRANCH', type: 'PT_BRANCH'
     }
 
