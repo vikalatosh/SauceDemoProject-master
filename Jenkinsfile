@@ -7,8 +7,8 @@ pipeline {
     }
 
     parameters {
-      booleanParam 'HEADLESS'
-      choice choices: ['chrome', 'edge', 'firefox'], name: 'BROWSER'
+//       booleanParam 'HEADLESS'
+//       choice choices: ['chrome', 'edge', 'firefox'], name: 'BROWSER'
 //       credentials credentialType: 'com.cloudbees.plugins.credentials.impl.UsernamePasswordCredentialsImpl', defaultValue: 'b9ad4ef1-c510-43c3-a659-d5a2718fb10e', name: 'CRQDENTIALS', required: false
 //       file '/src/test/resources/regression.xml'
       gitParameter branchFilter: 'origin/(.*)', defaultValue: 'master', name: 'BRANCH', type: 'PT_BRANCH'
