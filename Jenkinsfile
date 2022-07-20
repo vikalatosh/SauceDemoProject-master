@@ -9,13 +9,13 @@ pipeline {
     parameters {
       booleanParam 'HEADLESS'
       choice choices: ['chrome', 'edge', 'firefox'], name: 'BROWSER'
-      credentials credentialType: 'com.cloudbees.plugins.credentials.impl.UsernamePasswordCredentialsImpl', defaultValue: 'b9ad4ef1-c510-43c3-a659-d5a2718fb10e', name: 'CRQDENTIALS', required: false
-      file '/src/test/resources/regression.xml'
+//       credentials credentialType: 'com.cloudbees.plugins.credentials.impl.UsernamePasswordCredentialsImpl', defaultValue: 'b9ad4ef1-c510-43c3-a659-d5a2718fb10e', name: 'CRQDENTIALS', required: false
+//       file '/src/test/resources/regression.xml'
       gitParameter branchFilter: 'origin/(.*)', defaultValue: 'master', name: 'BRANCH', type: 'PT_BRANCH'
-      password defaultValue: '', name: 'ADMIN_PASSWORD'
-      run filter: 'SUCCESSFUL', name: 'BASE_URL', projectName: 'SAUCEDEMO_JOB'
-      string name: 'STRING_PARAMETER', trim: true
-      text 'MULTI_LINE_STRING'
+//       password defaultValue: '', name: 'ADMIN_PASSWORD'
+//       run filter: 'SUCCESSFUL', name: 'BASE_URL', projectName: 'SAUCEDEMO_JOB'
+//       string name: 'STRING_PARAMETER', trim: true
+//       text 'MULTI_LINE_STRING'
     }
 
     stages {
