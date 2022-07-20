@@ -28,25 +28,25 @@ public class BaseTest {
     protected CartPage cartPage;
     protected BurgerMenuPage burgerMenuPage;
     WebDriver driver;
-    protected static final String browser = System.getenv("BROWSER");
-    protected static final String headless = System.getenv("HEADLESS");
+//    protected static final String browser = System.getenv("BROWSER");
+//    protected static final String headless = System.getenv("HEADLESS");
 //    public static final String USER = "standard_user";
 //    public static final String PASSWORD = "secret_sauce";
 //    public static final String URL = "https://www.saucedemo.com/";
 
     @Step("Open browser")
-//    @Parameters({"browser"})
+    @Parameters({"browser"})
     @BeforeMethod(description = "Open browser")
-    public void setUp(ITestContext testContext) {
+    public void setUp(@Optional("chrome") String browser, ITestContext testContext) {
         log.info("Open browser " + browser.toString());
         if (browser == "" || browser == null || browser.equals("chrome")) {
             WebDriverManager.chromedriver().setup();
             ChromeOptions options = new ChromeOptions();
             options.addArguments("--start-maximized");
-            if (headless.equals("true")) {
+//            if (headless.equals("true")) {
                 log.info("headless");
                 options.addArguments("--headless");
-            }
+//            }
             options.addArguments("--disable-notifications");
             log.info("Chrome");
             driver = new ChromeDriver(options);
