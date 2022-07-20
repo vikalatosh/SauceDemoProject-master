@@ -38,13 +38,13 @@ public class BaseTest {
     @Parameters({"browser"})
     @BeforeMethod(description = "Open browser")
     public void setUp(@Optional("chrome") String browser, ITestContext testContext) {
-        log.info("Open browser " + browser.toString());
-        if (browser == "" || browser == null || browser.equals("chrome")) {
+        log.info("Open browser " + browser);
+        if (browser.equals("chrome")) {
             WebDriverManager.chromedriver().setup();
             ChromeOptions options = new ChromeOptions();
             options.addArguments("--start-maximized");
 //            if (headless.equals("true")) {
-                log.info("headless");
+//                log.info("headless");
                 options.addArguments("--headless");
 //            }
             options.addArguments("--disable-notifications");
