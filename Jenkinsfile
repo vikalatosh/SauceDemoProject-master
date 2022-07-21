@@ -31,7 +31,7 @@ pipeline {
                             archiveArtifacts 'target/*.jar'
                         }
                     }
-                },
+                }
             }, secondBranch: {
                 stage('Run Burger Menu Test') {
                     steps {
