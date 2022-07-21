@@ -11,27 +11,30 @@ pipeline {
 //     }
 
     stages {
-        parallel {
-            stage('Run Products Test') {
-                steps {
-                    // Get some code from a GitHub repository
-//                     git branch: "${params.BRANCH}", url: 'https://github.com/vikalatosh/SauceDemoProject-master.git'
-                    git 'https://github.com/vikalatosh/SauceDemoProject-master.git'
+        stage ('Run in parallel') {
+            parallel {
+                stage('Run Products Test') {
+                    steps {
+                        // Get some code from a GitHub repository
+    //                     git branch: "${params.BRANCH}", url: 'https://github.com/vikalatosh/SauceDemoProject-master.git'
+                        git 'https://github.com/vikalatosh/SauceDemoProject-master.git'
 
-                    // Run Maven on a Unix agent.
-                    // sh "mvn -Dmaven.test.failure.ignore=true clean package"
+                        // Run Maven on a Unix agent.
+                        // sh "mvn -Dmaven.test.failure.ignore=true clean package"
 
-                    // To run Maven on a Windows agent, use
-                    bat "mvn -Dmaven.test.failure.ignore=true -Dtest="ProductsTest" clean test"
+                        // To run Maven on a Windows agent, use
+                        bat "mvn -Dmaven.test.failure.ignore=true -Dtest="ProductsTest" clean test"
+                    }
                 }
-            }
-            stage('Run Burger Menu Test') {
-                steps {
-                    git 'https://github.com/vikalatosh/SauceDemoProject-master.git'
-                    bat "mvn -Dmaven.test.failure.ignore=true -Dtest="BurgerMenuTest" clean test"
+                stage('Run Burger Menu Test') {
+                    steps {
+                        git 'https://github.com/vikalatosh/SauceDemoProject-master.git'
+                        bat "mvn -Dmaven.test.failure.ignore=true -Dtest="BurgerMenuTest" clean test"
+                    }
                 }
             }
         }
+
 
 
 //             post {
