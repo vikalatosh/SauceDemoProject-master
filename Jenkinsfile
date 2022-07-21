@@ -12,8 +12,8 @@ pipeline {
 
     stages {
         stage ('Run in parallel') {
-            parallel firstBranch: {
-                stage('Run Products Test') {
+            parallel (
+                "Run Products Test": {
                     steps {
                         // Get some code from a GitHub repository
     //                     git branch: "${params.BRANCH}", url: 'https://github.com/vikalatosh/SauceDemoProject-master.git'
@@ -31,9 +31,8 @@ pipeline {
                             archiveArtifacts 'target/*.jar'
                         }
                     }
-                }
-            }, secondBranch: {
-                stage('Run Burger Menu Test') {
+                },
+                "Run Burger Menu Test": {
                     steps {
                         git 'https://github.com/vikalatosh/SauceDemoProject-master.git'
                         bat "mvn -Dmaven.test.failure.ignore=true -Dtest="BurgerMenuTest" clean test"
@@ -45,8 +44,7 @@ pipeline {
                         }
                     }
                 }
-            },
-            failFast: false
+            )
         }
     }
 }
