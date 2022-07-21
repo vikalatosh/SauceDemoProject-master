@@ -12,7 +12,7 @@ pipeline {
 
     stages {
         stage ('Run in parallel') {
-            parallel (
+            parallel {
                 stage ('Run Products Test') {
                     steps {
                         script {
@@ -41,7 +41,7 @@ pipeline {
                         }
                     }
                 }
-            )
+            }
         }
     }
 }
