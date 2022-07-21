@@ -32,18 +32,18 @@ pipeline {
                         }
                     }
                 }
-                stage('Run Burger Menu Test') {
-                    steps {
-                        git 'https://github.com/vikalatosh/SauceDemoProject-master.git'
-                        bat "mvn -Dmaven.test.failure.ignore=true -Dtest="BurgerMenuTest" clean test"
-                    }
-                    post {
-                        success {
-                            junit '**/target/surefire-reports/TEST-*.xml'
-                            archiveArtifacts 'target/*.jar'
-                        }
-                    }
-                }
+//                 stage('Run Burger Menu Test') {
+//                     steps {
+//                         git 'https://github.com/vikalatosh/SauceDemoProject-master.git'
+//                         bat "mvn -Dmaven.test.failure.ignore=true -Dtest="BurgerMenuTest" clean test"
+//                     }
+//                     post {
+//                         success {
+//                             junit '**/target/surefire-reports/TEST-*.xml'
+//                             archiveArtifacts 'target/*.jar'
+//                         }
+//                     }
+//                 }
             }
         }
 
