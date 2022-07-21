@@ -13,7 +13,7 @@ pipeline {
     stages {
         stage ('Run in parallel') {
             parallel (
-                'Run Products Test': {
+                stage ('Run Products Test') {
                     steps {
                         script {
                              git 'https://github.com/vikalatosh/SauceDemoProject-master.git'
@@ -26,8 +26,8 @@ pipeline {
                             archiveArtifacts 'target/*.jar'
                         }
                     }
-                },
-                'Run Burger Menu Test': {
+                }
+                stage('Run Burger Menu Test') {
                     steps {
                         script {
                             git 'https://github.com/vikalatosh/SauceDemoProject-master.git'
