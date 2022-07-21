@@ -12,7 +12,7 @@ pipeline {
 
     stages {
         stage ('Run in parallel') {
-            parallel {
+            parallel firstBranch: {
                 stage('Run Products Test') {
                     steps {
                         // Get some code from a GitHub repository
@@ -31,32 +31,22 @@ pipeline {
                             archiveArtifacts 'target/*.jar'
                         }
                     }
+                },
+            }, secondBranch: {
+                stage('Run Burger Menu Test') {
+                    steps {
+                        git 'https://github.com/vikalatosh/SauceDemoProject-master.git'
+                        bat "mvn -Dmaven.test.failure.ignore=true -Dtest="BurgerMenuTest" clean test"
+                    }
+                    post {
+                        success {
+                            junit '**/target/surefire-reports/TEST-*.xml'
+                            archiveArtifacts 'target/*.jar'
+                        }
+                    }
                 }
-//                 stage('Run Burger Menu Test') {
-//                     steps {
-//                         git 'https://github.com/vikalatosh/SauceDemoProject-master.git'
-//                         bat "mvn -Dmaven.test.failure.ignore=true -Dtest="BurgerMenuTest" clean test"
-//                     }
-//                     post {
-//                         success {
-//                             junit '**/target/surefire-reports/TEST-*.xml'
-//                             archiveArtifacts 'target/*.jar'
-//                         }
-//                     }
-//                 }
-            }
+            },
+            failFast: false
         }
-
-
-
-//             post {
-//                 // If Maven was able to run the tests, even if some of the test
-//                 // failed, record the test results and archive the jar file.
-//                 success {
-//                     junit '**/target/surefire-reports/TEST-*.xml'
-//                     archiveArtifacts 'target/*.jar'
-//                 }
-//             }
-
     }
 }
