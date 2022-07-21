@@ -15,8 +15,10 @@ pipeline {
             parallel (
                 'Run Products Test': {
                     steps {
-                        git 'https://github.com/vikalatosh/SauceDemoProject-master.git'
-                        bat "mvn -Dmaven.test.failure.ignore=true -Dtest="ProductsTest" clean test"
+                        script {
+                             git 'https://github.com/vikalatosh/SauceDemoProject-master.git'
+                             bat "mvn -Dmaven.test.failure.ignore=true -Dtest="ProductsTest" clean test"
+                        }
                     }
                     post {
                         success {
@@ -27,8 +29,10 @@ pipeline {
                 },
                 'Run Burger Menu Test': {
                     steps {
-                        git 'https://github.com/vikalatosh/SauceDemoProject-master.git'
-                        bat "mvn -Dmaven.test.failure.ignore=true -Dtest="BurgerMenuTest" clean test"
+                        script {
+                            git 'https://github.com/vikalatosh/SauceDemoProject-master.git'
+                            bat "mvn -Dmaven.test.failure.ignore=true -Dtest="BurgerMenuTest" clean test"
+                        }
                     }
                     post {
                         success {
