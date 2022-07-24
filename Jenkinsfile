@@ -16,7 +16,7 @@ pipeline {
                 stage ('Run regression tests') {
                     steps {
                         script {
-                            bat "mvn -Dmaven.test.failure.ignore=true -Dsurefire.suiteXmlFiles=src/test/resources/regression.xml clean test"
+                            bat "mvn -Dmaven.test.failure.ignore=true -Dsurefire.suiteXmlFiles=src/test/resources/regression.xml test"
                         }
                     }
                     post {
@@ -28,7 +28,7 @@ pipeline {
                 stage('Run smoke tests') {
                     steps {
                         script {
-                            bat "mvn -Dmaven.test.failure.ignore=true -Dsurefire.suiteXmlFiles=src/test/resources/smoke.xml clean test"
+                            bat "mvn -Dmaven.test.failure.ignore=true -Dsurefire.suiteXmlFiles=src/test/resources/smoke.xml test"
                         }
                     }
                     post {
