@@ -19,11 +19,21 @@ pipeline {
                             bat "mvn -Dmaven.test.failure.ignore=true -Dsurefire.suiteXmlFiles=src/test/resources/regression.xml clean test"
                         }
                     }
+                    post {
+                        success {
+                            junit '**/target/surefire-reports/TEST-*.xml'
+                        }
+                    }
                 }
                 stage('Run smoke tests') {
                     steps {
                         script {
                             bat "mvn -Dmaven.test.failure.ignore=true -Dsurefire.suiteXmlFiles=src/test/resources/smoke.xml clean test"
+                        }
+                    }
+                    post {
+                        success {
+                            junit '**/target/surefire-reports/TEST-*.xml'
                         }
                     }
                 }
