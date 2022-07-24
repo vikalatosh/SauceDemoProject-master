@@ -16,7 +16,7 @@ pipeline {
                 stage ('Run Products Test') {
                     steps {
                         script {
-                             git 'https://github.com/vikalatosh/SauceDemoProject-master.git'
+//                              git 'https://github.com/vikalatosh/SauceDemoProject-master.git'
                              bat "mvn -Dmaven.test.failure.ignore=true -Dtest="ProductsTest" clean test"
                         }
                     }
@@ -30,7 +30,7 @@ pipeline {
                 stage('Run Burger Menu Test') {
                     steps {
                         script {
-                            git 'https://github.com/vikalatosh/SauceDemoProject-master.git'
+//                             git 'https://github.com/vikalatosh/SauceDemoProject-master.git'
                             bat "mvn -Dmaven.test.failure.ignore=true -Dtest="BurgerMenuTest" clean test"
                         }
                     }
