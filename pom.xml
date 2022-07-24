@@ -10,8 +10,8 @@
         <testng.version>7.1.0</testng.version>
         <selenium.version>3.141.59</selenium.version>
         <webdrivermanager.version>4.4.1</webdrivermanager.version>
-        <suiteXmlFile>src/test/resources/regression.xml</suiteXmlFile>
-        <suiteXmlFile>src/test/resources/smoke.xml</suiteXmlFile>
+        <suiteXmlFile>src/test/resources/*.xml</suiteXmlFile>
+<!--        <suiteXmlFile>src/test/resources/smoke.xml</suiteXmlFile>-->
         <aspect.version>1.9.6</aspect.version>
         <allure-maven.version>2.10.0</allure-maven.version>
         <allure-testng.version>2.13.9</allure-testng.version>
