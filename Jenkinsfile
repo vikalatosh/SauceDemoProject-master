@@ -2,13 +2,8 @@ pipeline {
     agent any
 
     tools {
-        // Install the Maven version configured as "M3" and add it to the path.
         maven "M3"
     }
-
-//     parameters {
-//       gitParameter branchFilter: 'origin/(.*)', defaultValue: 'master', name: 'BRANCH', type: 'PT_BRANCH'
-//     }
 
     stages {
         stage ('Checkout') {
@@ -21,14 +16,24 @@ pipeline {
                 stage ('Run regression tests') {
                     steps {
                         script {
-                            bat "mvn -Dmaven.test.failure.ignore=true -Dsurefire.suiteXmlFiles=src/test/resources/regression.xml clean test"
+                            bat "mvn -Dmaven.test.failure.ignore=true -Dsurefire.suiteXmlFiles=src/test/resources/regression.xml test"
+                        }
+                    }
+                    post {
+                        success {
+                            junit '**/target/surefire-reports/TEST-*.xml'
                         }
                     }
                 }
                 stage('Run smoke tests') {
                     steps {
                         script {
-                            bat "mvn -Dmaven.test.failure.ignore=true -Dsurefire.suiteXmlFiles=src/test/resources/smoke.xml clean test"
+                            bat "mvn -Dmaven.test.failure.ignore=true -Dsurefire.suiteXmlFiles=src/test/resources/smoke.xml test"
+                        }
+                    }
+                    post {
+                        success {
+                            junit '**/target/surefire-reports/TEST-*.xml'
                         }
                     }
                 }
