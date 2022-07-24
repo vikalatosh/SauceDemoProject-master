@@ -11,13 +11,17 @@ pipeline {
 //     }
 
     stages {
+        stage ('Checkout') {
+            steps {
+                git 'https://github.com/vikalatosh/SauceDemoProject-master.git'
+            }
+        }
         stage ('Run in parallel') {
             parallel {
                 stage ('Run Products Test') {
                     steps {
                         script {
-//                              git 'https://github.com/vikalatosh/SauceDemoProject-master.git'
-                             bat "mvn -Dmaven.test.failure.ignore=true -Dtest="ProductsTest" clean test"
+                            bat "mvn -Dmaven.test.failure.ignore=true -Dtest="ProductsTest" clean test"
                         }
                     }
                     post {
@@ -30,7 +34,6 @@ pipeline {
                 stage('Run Burger Menu Test') {
                     steps {
                         script {
-//                             git 'https://github.com/vikalatosh/SauceDemoProject-master.git'
                             bat "mvn -Dmaven.test.failure.ignore=true -Dtest="BurgerMenuTest" clean test"
                         }
                     }
