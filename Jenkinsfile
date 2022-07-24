@@ -21,7 +21,7 @@ pipeline {
                 stage ('Run Products Test') {
                     steps {
                         script {
-                            bat "mvn -Dmaven.test.failure.ignore=true -Dtest='Thread1' -DfailIfNoTests=false clean test"
+                            bat "mvn -Dmaven.test.failure.ignore=true -DfailIfNoTests=false clean test"
                         }
                     }
 //                     post {
@@ -34,7 +34,7 @@ pipeline {
                 stage('Run Burger Menu Test') {
                     steps {
                         script {
-                            bat "mvn -Dmaven.test.failure.ignore=true -Dtest='Thread2' -DfailIfNoTests=false clean test"
+                            bat "mvn -Dmaven.test.failure.ignore=true -DfailIfNoTests=false clean test"
                         }
                     }
 //                     post {
