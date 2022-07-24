@@ -18,31 +18,19 @@ pipeline {
         }
         stage ('Run in parallel') {
             parallel {
-                stage ('Run Products Test') {
+                stage ('Run regression tests') {
                     steps {
                         script {
-                            bat "mvn -Dmaven.test.failure.ignore=true -DfailIfNoTests=false clean test"
+                            bat "mvn -Dmaven.test.failure.ignore=true -Dsurefire.suiteXmlFiles=src/test/resources/regression.xml clean test"
                         }
                     }
-//                     post {
-//                         success {
-//                             junit '**/target/surefire-reports/TEST-*.xml'
-//                             archiveArtifacts 'target/*.jar'
-//                         }
-//                     }
                 }
-                stage('Run Burger Menu Test') {
+                stage('Run smoke tests') {
                     steps {
                         script {
-                            bat "mvn -Dmaven.test.failure.ignore=true -DfailIfNoTests=false clean test"
+                            bat "mvn -Dmaven.test.failure.ignore=true -Dsurefire.suiteXmlFiles=src/test/resources/smoke.xml clean test"
                         }
                     }
-//                     post {
-//                         success {
-//                             junit '**/target/surefire-reports/TEST-*.xml'
-//                             archiveArtifacts 'target/*.jar'
-//                         }
-//                     }
                 }
             }
         }
