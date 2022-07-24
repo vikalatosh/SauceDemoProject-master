@@ -4,11 +4,11 @@
     <listeners>
         <listener class-name="tests.base.AnnotationTransformer"/>
     </listeners>
-    <test name="Thread2">
+    <test name="Thread1">
         <parameter name="browser" value="chrome"></parameter>
         <classes>
-            <class name="tests.BurgerMenuTest"/>
-            <class name="tests.CheckoutTest"/>
+            <class name="tests.LoginTest"/>
+            <class name="tests.ProductsTest"/>
         </classes>
-    </test>
+    </test> <!-- Test -->
 </suite>

@@ -8,6 +8,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.edge.EdgeOptions;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
 import org.testng.ITestContext;
 import org.testng.annotations.*;
 import pages.*;
@@ -26,6 +28,8 @@ public class BaseTest {
     protected CartPage cartPage;
     protected BurgerMenuPage burgerMenuPage;
     WebDriver driver;
+//    protected static final String browser = System.getenv("BROWSER");
+//    protected static final String headless = System.getenv("HEADLESS");
 //    public static final String USER = "standard_user";
 //    public static final String PASSWORD = "secret_sauce";
 //    public static final String URL = "https://www.saucedemo.com/";
@@ -34,18 +38,28 @@ public class BaseTest {
     @Parameters({"browser"})
     @BeforeMethod(description = "Open browser")
     public void setUp(@Optional("chrome") String browser, ITestContext testContext) {
-        log.info("Open browser");
+        log.info("Open browser " + browser);
         if (browser.equals("chrome")) {
             WebDriverManager.chromedriver().setup();
             ChromeOptions options = new ChromeOptions();
             options.addArguments("--start-maximized");
-            options.addArguments("--headless");
+//            if (headless.equals("true")) {
+//                log.info("headless");
+                options.addArguments("--headless");
+//            }
             options.addArguments("--disable-notifications");
+            log.info("Chrome");
             driver = new ChromeDriver(options);
         } else if (browser.equals("edge")) {
             WebDriverManager.edgedriver().setup();
             EdgeOptions options = new EdgeOptions();
             driver = new EdgeDriver(options);
+            log.info("edge");
+        } else if (browser.equals("firefox")) {
+            WebDriverManager.firefoxdriver().setup();
+            FirefoxOptions options = new FirefoxOptions();
+            driver = new FirefoxDriver(options);
+            log.info("firefox");
         }
         testContext.setAttribute("driver", driver);
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
