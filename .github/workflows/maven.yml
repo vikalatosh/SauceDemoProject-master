@@ -28,7 +28,7 @@ jobs:
         distribution: 'temurin'
         cache: maven
     - name: Restore Maven cache
-      uses: skjolber/maven-cache-github-action@v1
+      uses: skjolber/maven-cache-github-action@v1.1
       with:
         step: restore
     - name: Build with Maven
@@ -38,7 +38,7 @@ jobs:
         SAUCEDEMO_PASSWORD: ${{secrets.SAUCEDEMO_PASSWORD}}
         SAUCEDEMO_URL: ${{secrets.SAUCEDEMO_URL}}
     - name: Save Maven cache
-      uses: skjolber/maven-cache-github-action@v1
+      uses: skjolber/maven-cache-github-action@v1.1
       with:
         step: save
     # Optional: Uploads the full dependency graph to GitHub to improve the quality of Dependabot alerts this repository can receive
