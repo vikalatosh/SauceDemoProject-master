@@ -1,0 +1,8 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"passed","Mon Dec 26 18:16:02 GMT 2022","Mon Dec 26 18:16:04 GMT 2022","2083","Regression test suite","Thread2","tests.BurgerMenuTest","tests.BurgerMenuTest","buttonLogoutShouldGoToLoginPage","Logout should go to Login page",""
+"passed","Mon Dec 26 18:16:08 GMT 2022","Mon Dec 26 18:16:09 GMT 2022","847","Regression test suite","Thread2","tests.CheckoutTest","tests.CheckoutTest","inputInvalidDataIntoCheckoutForm","Negative tests for Checkout page",""
+"passed","Mon Dec 26 18:16:09 GMT 2022","Mon Dec 26 18:16:10 GMT 2022","869","Regression test suite","Thread2","tests.CheckoutTest","tests.CheckoutTest","inputInvalidDataIntoCheckoutForm","Negative tests for Checkout page",""
+"passed","Mon Dec 26 18:16:05 GMT 2022","Mon Dec 26 18:16:06 GMT 2022","697","Regression test suite","Thread2","tests.CheckoutTest","tests.CheckoutTest","buttonCancelShouldGoToProductsPage","Button Cancel should go to Products page",""
+"passed","Mon Dec 26 18:16:06 GMT 2022","Mon Dec 26 18:16:07 GMT 2022","934","Regression test suite","Thread2","tests.CheckoutTest","tests.CheckoutTest","inputInvalidDataIntoCheckoutForm","Negative tests for Checkout page",""
+"passed","Mon Dec 26 18:16:04 GMT 2022","Mon Dec 26 18:16:05 GMT 2022","570","Regression test suite","Thread2","tests.BurgerMenuTest","tests.BurgerMenuTest","linkAboutShouldBeCorrect","SauceLabs link should be correct",""
+"passed","Mon Dec 26 18:16:10 GMT 2022","Mon Dec 26 18:16:11 GMT 2022","905","Regression test suite","Thread2","tests.CheckoutTest","tests.CheckoutTest","inputValidDataIntoCheckoutForm","Positive test for Checkout form",""
