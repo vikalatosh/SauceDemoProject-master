@@ -63,6 +63,7 @@ jobs:
     - name: Allure Report action from marketplace
       uses: simple-elf/allure-report-action@master
       if: always()
+      continue-on-error: true
       #id: allure-report
       with:
         allure_results: target/allure-results
@@ -73,6 +74,7 @@ jobs:
 
     - name: Deploy report to Github Pages
       if: always()
+      continue-on-error: true
       uses: peaceiris/actions-gh-pages@v2
       env:
         PERSONAL_TOKEN: ${{ secrets.GITHUB_TOKEN }}
