@@ -21,7 +21,7 @@ public class CheckoutTest extends BaseTest {
     @Test(description = "Negative tests for Checkout page", dataProvider = "Checkout Data")
     public void inputInvalidDataIntoCheckoutForm(String firstName, String lastName, String postalCode, String errorMessage) {
         loginPage.open();
-        loginPage.login(USER, PASSWORD);
+        loginPage.login(USER, "PASSWORD");
         cartPage.openCart();
         cartPage.clickCheckout();
         checkoutPage.inputYourInformation(firstName, lastName, postalCode);
