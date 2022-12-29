@@ -1,0 +1,8 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"passed","Thu Dec 29 12:46:29 GMT 2022","Thu Dec 29 12:46:32 GMT 2022","2298","Regression test suite","Thread2","tests.BurgerMenuTest","tests.BurgerMenuTest","buttonLogoutShouldGoToLoginPage","Logout should go to Login page",""
+"passed","Thu Dec 29 12:51:14 GMT 2022","Thu Dec 29 12:51:15 GMT 2022","973","Regression test suite","Thread2","tests.CheckoutTest","tests.CheckoutTest","inputValidDataIntoCheckoutForm","Positive test for Checkout form",""
+"broken","Thu Dec 29 12:47:36 GMT 2022","Thu Dec 29 12:48:07 GMT 2022","30596","Regression test suite","Thread2","tests.CheckoutTest","tests.CheckoutTest","inputInvalidDataIntoCheckoutForm","Negative tests for Checkout page",""
+"passed","Thu Dec 29 12:46:32 GMT 2022","Thu Dec 29 12:46:33 GMT 2022","658","Regression test suite","Thread2","tests.BurgerMenuTest","tests.BurgerMenuTest","linkAboutShouldBeCorrect","SauceLabs link should be correct",""
+"broken","Thu Dec 29 12:50:43 GMT 2022","Thu Dec 29 12:51:13 GMT 2022","30606","Regression test suite","Thread2","tests.CheckoutTest","tests.CheckoutTest","inputInvalidDataIntoCheckoutForm","Negative tests for Checkout page",""
+"passed","Thu Dec 29 12:46:33 GMT 2022","Thu Dec 29 12:46:34 GMT 2022","790","Regression test suite","Thread2","tests.CheckoutTest","tests.CheckoutTest","buttonCancelShouldGoToProductsPage","Button Cancel should go to Products page",""
+"broken","Thu Dec 29 12:49:10 GMT 2022","Thu Dec 29 12:49:40 GMT 2022","30642","Regression test suite","Thread2","tests.CheckoutTest","tests.CheckoutTest","inputInvalidDataIntoCheckoutForm","Negative tests for Checkout page",""
